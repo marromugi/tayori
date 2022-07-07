@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <clipPath id="clip-image_1">
+      <rect width="400" height="400"/>
+    </clipPath>
+  </defs>
+  <g id="image_1" data-name="image – 1" clip-path="url(#clip-image_1)">
+    <g id="長方形_92" data-name="長方形 92" transform="translate(25 58)" fill="#fff" stroke="#282836" stroke-width="20">
+      <rect width="350" height="285" rx="25" stroke="none"/>
+      <rect x="10" y="10" width="330" height="265" rx="15" fill="none"/>
+    </g>
+    <g id="楕円形_26" data-name="楕円形 26" transform="translate(134 99)" fill="none" stroke="#282836" stroke-width="16">
+      <circle cx="33" cy="33" r="33" stroke="none"/>
+      <circle cx="33" cy="33" r="25" fill="none"/>
+    </g>
+    <path id="パス_31" data-name="パス 31" d="M85.921,34.157c17.715-40.8,54.925-13.007,60.588-7.457L301.515,136.163c9.024,8.845,2.551,23.837-10.292,23.837H67.922c-12.843,0-20.881-21.863-11.857-30.707V83.083Z" transform="translate(-19.473 169)" fill="#282836"/>
+    <path id="パス_32" data-name="パス 32" d="M119.024-21.846c27.328-40.272,52-38.484,77.715-7.283L242.995,42.09l-6.383,94.073C245.635,145.008,244.14,160,231.3,160H33.966c-12.843,0-19.316-14.992-10.292-23.837Z" transform="translate(123.649 169)" fill="#282836"/>
+    <line id="線_2" data-name="線 2" x1="46.995" y2="80" transform="translate(134.5 233.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="16"/>
+  </g>
+</svg>

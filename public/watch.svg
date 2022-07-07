@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <clipPath id="clip-watch">
+      <rect width="400" height="400"/>
+    </clipPath>
+  </defs>
+  <g id="watch" clip-path="url(#clip-watch)">
+    <g id="楕円形_26" data-name="楕円形 26" transform="translate(50 50)" fill="#fff" stroke="#282836" stroke-width="20">
+      <circle cx="150" cy="150" r="150" stroke="none"/>
+      <circle cx="150" cy="150" r="140" fill="none"/>
+    </g>
+    <g id="長方形_154" data-name="長方形 154" transform="matrix(-0.469, 0.883, -0.883, -0.469, 310.962, 244.111)" fill="#282836" stroke="#282836" stroke-width="10">
+      <rect width="23.198" height="123.247" rx="11.599" stroke="none"/>
+      <rect x="5" y="5" width="13.198" height="113.247" rx="6.599" fill="none"/>
+    </g>
+    <g id="長方形_155" data-name="長方形 155" transform="translate(51.751 186.25)" fill="#282836" stroke="#282836" stroke-width="10">
+      <rect width="40" height="20" rx="10" stroke="none"/>
+      <rect x="5" y="5" width="30" height="10" rx="5" fill="none"/>
+    </g>
+    <g id="長方形_159" data-name="長方形 159" transform="translate(305.751 186.25)" fill="#282836" stroke="#282836" stroke-width="10">
+      <rect width="40" height="20" rx="10" stroke="none"/>
+      <rect x="5" y="5" width="30" height="10" rx="5" fill="none"/>
+    </g>
+    <g id="長方形_161" data-name="長方形 161" transform="translate(210 307.502) rotate(90)" fill="#282836" stroke="#282836" stroke-width="10">
+      <rect width="40" height="20" rx="10" stroke="none"/>
+      <rect x="5" y="5" width="30" height="10" rx="5" fill="none"/>
+    </g>
+    <g id="長方形_160" data-name="長方形 160" transform="translate(210 54.891) rotate(90)" fill="#282836" stroke="#282836" stroke-width="10">
+      <rect width="40" height="20" rx="10" stroke="none"/>
+      <rect x="5" y="5" width="30" height="10" rx="5" fill="none"/>
+    </g>
+    <g id="長方形_163" data-name="長方形 163" transform="matrix(0.695, 0.719, -0.719, 0.695, 194.633, 185)" fill="#282836" stroke="#282836" stroke-width="10">
+      <rect width="24.403" height="91" rx="12.201" stroke="none"/>
+      <rect x="5" y="5" width="14.403" height="81" rx="7.201" fill="none"/>
+    </g>
+    <g id="長方形_162" data-name="長方形 162" transform="translate(220 180) rotate(90)" fill="#fff" stroke="#282836" stroke-width="10">
+      <rect width="40" height="40" rx="20" stroke="none"/>
+      <rect x="5" y="5" width="30" height="30" rx="15" fill="none"/>
+    </g>
+  </g>
+</svg>

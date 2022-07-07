@@ -1,0 +1,57 @@
+/* reset css */
+:root {
+  --transition: 0.24s;
+  --timing: cubic-bezier(0.16, 0.77, 0.6, 0.95);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+textarea {
+  border: none;
+}
+
+textarea {
+  resize: none;
+}
+
+input,
+textarea:focus {
+  outline: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+* {
+  box-sizing: border-box;
+  transition: var(--transition);
+  transition-timing-function: var(--timing);
+}
