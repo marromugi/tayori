@@ -87,9 +87,9 @@ service firebase.storage {
 |NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID|firebaseConfig|messagingSenderId|
 |NEXT_PUBLIC_FIREBASE_APP_ID|firebaseConfig|appId|
 |NEXT_PUBLIC_FIREBASE_MESUREMENT_ID|firebaseConfig|measurementId|
-|FIREBASE_PROJECT_ID|AdminSDK JSONファイル|measurementId|
-|FIREBASE_PRIVATE_KEY|AdminSDK JSONファイル|measurementId|
-|FIREBASE_CLIENT_EMAIL|AdminSDK JSONファイル|measurementId|
+|FIREBASE_PROJECT_ID|AdminSDK JSONファイル|project_id|
+|FIREBASE_PRIVATE_KEY|AdminSDK JSONファイル|private_key|
+|FIREBASE_CLIENT_EMAIL|AdminSDK JSONファイル|client_email|
 |OWNER_EMAIL|なし|任意のメールアドレス|
 |OWNER_PWD|なし|任意のパスワード|
 
@@ -98,3 +98,10 @@ service firebase.storage {
 ### 7. 起動
 環境変数の設定が終わったので、起動します。<br>
 開発環境の場合は、`npm run dev`で起動。<br>
+
+## 投稿の取得方法
+`Tayori`で作成した投稿は、`Tayori`で修正する他、APIを叩くことで任意の場所で取得することができます。<br>
+|エンドポイント|例|詳細|
+|-------|-------|------|
+|`TAYORI-DOMAIN`/api/post|`https://your-tayori.com/api/post`|公開している全投稿を取得します|
+|`TAYORI-DOMAIN`/api/post/[slug]|`https://your-tayori.com/api/post/my-first-blog`|指定した`スラッグ`を持つ投稿を１件取得します。
