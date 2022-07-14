@@ -93,7 +93,11 @@ service firebase.storage {
 |OWNER_EMAIL|なし|任意のメールアドレス|
 |OWNER_PWD|なし|任意のパスワード|
 
-`OWNER_EMAIL`と`OWNER_PWD`は、初回ログインするアカウントのメールアドレスとパスワードになります。
+`OWNER_EMAIL`と`OWNER_PWD`は、初回ログインするアカウントのメールアドレスとパスワードになります。<br>
+またデプロイ先に`Vercel`を採用する場合、`FIREBASE_PRIVATE_KEY`の入力内容が異なります。開発時は、秘密鍵を`"`で括りますが、Vercelに秘密鍵を登録する際は`"`を除いて登録してください。
+|開発時|Vercelデプロイ時|
+|----|----|
+|"-----BEGIN PRIVATE KEY-----\n...----END PRIVATE KEY-----\n"|-----BEGIN PRIVATE KEY-----\n...----END PRIVATE KEY-----\n|
 
 ### 7. 起動
 環境変数の設定が終わったので、起動します。<br>
