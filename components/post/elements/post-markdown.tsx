@@ -1,21 +1,20 @@
-import { HTMLToken } from 'middle'
-import dynamic from 'next/dynamic'
 
-export const PostMarkdown = (tokens: HTMLToken[]) => {
+import { gen } from 'middle'
+import { Post } from 'post/types/post'
+
+export const PostMarkdown = (props: { post: Post }) => {
   // console.log(tokens)
-  const elements = tokens.map((t) => {
-    if (t.isHTML) {
-      return <div dangerouslySetInnerHTML={{ __html: t.content as string }} />
-    } else {
-      const content = t.content as { component: string; props: string[] }
-      const Component = dynamic<{ data: string[] }>(
-        () =>
-          import(
-            process.env.NEXT_PUBLIC_MIDDLE_COMPONENT_PATH + content.component
-          )
-      )
-      return Component ? <Component data={content.props ?? []} /> : <></>
-    }
+  const elements = gen(props.post.markdown ?? '', {
+    img: 'md-img',
+    p: 'md-p',
+    a: 'md-a',
+    blockquote: 'md-bq',
+    pre: 'md-pre',
+    code: 'tokyo-night-dark'
   })
-  return <>{elements.map((e) => e)}</>
+  console.log(props.post.markdown)
+  console.log(elements)
+  return (
+    <div dangerouslySetInnerHTML={{__html: elements}}></div>
+  )
 }

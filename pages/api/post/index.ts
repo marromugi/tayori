@@ -14,31 +14,31 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       })
     }
 
-    const query = req.query
-    const slug = query.slug as string
     const db = admin.firestore()
     const now = new Date()
 
-    const docPost = await db.collection('post')
-      .where('slug', '==', slug)
-      .where('publish', '==', true)
-      .where('release', '<', now)
-      .get()
+    const docPosts = await db.collection('post')
+        .where('publish', '==', true)
+        .where('release', '<', now)
+        .get()
 
-    if (docPost.empty) {
-      return res.status(404).json({ message: 'slug is invalid' })
+    if (docPosts.empty) {
+      return res.status(404).json({ message: 'post not found' })
     }
 
-    const post = docPost.docs[0].data() as Post
-
-    return res.status(200).json({
-      id: post.id,
-      title: post.title,
-      slug: post.slug,
-      release: post.release.toDate(),
-      markdown: post.markdown,
-      thumbnail: post.thumbnail
+    const posts = docPosts.docs.map(docPost => {
+        const post = docPost.data() as Post
+        return {
+            id: post.id,
+            title: post.title,
+            slug: post.slug,
+            release: post.release.toDate(),
+            markdown: post.markdown,
+            thumbnail: post.thumbnail
+        }
     })
+
+    return res.status(200).json(posts)
   }
 }
 

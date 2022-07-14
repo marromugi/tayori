@@ -5,7 +5,6 @@ import { Area } from 'shared/elements/field/area'
 import { useTheme } from 'shared/hooks/useTheme'
 import { moduler } from 'shared/utils/styles'
 import styled from 'styled-components'
-import { gen } from 'middle'
 import { TransformBox } from 'shared/elements/box/transform'
 import { useEffect, useRef, useState, MutableRefObject } from 'react'
 import { usePostEditor } from 'post/hooks/usePostEditor'
@@ -16,7 +15,7 @@ export const PostEditor = (props: { post: Post; isPreview: boolean }) => {
   const { isPreview, uploadInfo, onInsertImgMarkdown } = usePostEditor()
   const { theme } = useTheme()
   const areaLeavePos = useRef(0)
-  const [markdown, setMarkdown] = useState(props.post.markdown ?? '')
+  const [, setMarkdown] = useState(props.post.markdown ?? '')
   const areaRef = useRef() as MutableRefObject<HTMLTextAreaElement>
 
   useEffect(() => {
@@ -66,7 +65,7 @@ export const PostEditor = (props: { post: Post; isPreview: boolean }) => {
               transform={isPreview ? 'translateY(0)' : 'translateY(1em)'}
             >
               <Box width={'100%'} padding={'2em 0 0 0'}>
-                {PostMarkdown(gen(markdown))}
+                <PostMarkdown post={props.post} />
               </Box>
             </TransformBox>
           </ColorBox>

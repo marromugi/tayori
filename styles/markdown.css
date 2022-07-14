@@ -1,0 +1,93 @@
+h1 {
+  font-size: 2.4em;
+  font-weight: 600;
+  margin: 1em 0;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 600;
+  margin: 1em 0;
+}
+
+h3 {
+  font-size: 1.6em;
+  font-weight: 600;
+  margin: 1em 0;
+}
+
+h4 {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 1em 0;
+}
+
+.md-bq {
+  margin: 0;
+  margin-top: 2em;
+  padding: 2em 1em;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  background: #f4f4f4;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #565658;
+}
+
+.md-bq > p {
+  margin-top: 0;
+}
+
+.md-p {
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  line-height: 2em;
+  margin: 0;
+  margin-top: 1em;
+}
+
+.md-a {
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  line-height: 2em;
+  color: #3c64c8;
+  text-decoration: underline;
+  text-decoration-color: #3c64c8;
+}
+
+a {
+  position: relative;
+  /* line-height: 2em;
+  padding: 0 0.25em;*/
+}
+
+/*
+a::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  background: #313131;
+  right: 0;
+  bottom: -6px;
+}
+*/
+
+.md-img {
+  width: 100%;
+}
+
+.md-wrapper {
+  width: 100%;
+}
+
+.md-pre {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+  font-size: 1em;
+  line-height: 2em;
+  letter-spacing: 0.06em;
+  margin-top: 2em;
+}
