@@ -1,1 +1,1 @@
-export type collections = 'post'
+export type collections = 'post' | 'slug'

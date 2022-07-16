@@ -10,9 +10,9 @@ import { firestore } from 'components/firebase/utils/firebase'
 
 export const take = async <T>(
   cl: collections,
-  uid: string = '',
-  isAll: boolean = false
+  uid?: string,
 ) => {
+  const isAll = !uid
   try {
     if (isAll) {
       const dataList: DocumentData[] = []

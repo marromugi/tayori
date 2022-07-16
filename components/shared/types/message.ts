@@ -1,0 +1,1 @@
+export type TayoriMessageType = 'success' | 'failed' | 'warning'

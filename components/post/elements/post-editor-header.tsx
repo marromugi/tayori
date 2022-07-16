@@ -61,10 +61,13 @@ export const PostEditorHeader = (props: { post: Post }) => {
           </HeaderButtonBox>
           <Button
             onClick={async () => {
-              const result = await savePost(props.post)
-              console.log(result)
-              if (result)
+              const error = await savePost(props.post)
+              console.log(error)
+              if (error === null) {
                 alert(`投稿【${props.post.title}】の保存が完了しました`)
+              } else {
+                alert(error.message)
+              }
             }}
           >
             保存する
