@@ -187,6 +187,19 @@ export const PostEditorSidebar = (props: {
             />
           </BottomField>
           <BottomField
+            title={'カテゴリー'}
+            description={'この投稿のカテゴリーを設定します'}
+          >
+            <Input
+              width={'100%'}
+              padding={'1em 0.5em'}
+              background={theme.color.gray06}
+              border={{ radius: '6px' }}
+              defaultValue={props.post.category}
+              onChange={(e) => (props.post.category = e.target.value)}
+            />
+          </BottomField>
+          <BottomField
             title={'サムネイル'}
             description={'記事のサムネイルを設定します'}
           >
@@ -195,6 +208,22 @@ export const PostEditorSidebar = (props: {
               name={thumbnail ? thumbnail.name : undefined}
               url={thumbnail ? thumbnail.url : undefined}
               onUpload={(info) => setThumbnail(info)}
+            />
+          </BottomField>
+          <BottomField
+            title={'カラー'}
+            description={'この投稿のテーマカラーを設定します'}
+          >
+            <Input
+              width={'100%'}
+              padding={'1em 0.5em'}
+              background={theme.color.gray06}
+              border={{ radius: '6px' }}
+              defaultValue={props.post.custom ? props.post.custom.color ?? '' : ''}
+              onChange={(e) => {
+                if (!props.post.custom) props.post.custom = {}
+                props.post.custom.color = e.target.value
+              }}
             />
           </BottomField>
         </FlexBox>

@@ -37,7 +37,8 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       slug: post.slug,
       release: post.release.toDate(),
       markdown: post.markdown,
-      thumbnail: post.thumbnail
+      thumbnail: post.thumbnail,
+      custom: post.custom ?? {}
     })
   }
 }

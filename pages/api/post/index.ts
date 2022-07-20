@@ -14,10 +14,18 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       })
     }
 
+    const query = req.query
+    const category = query.category
     const db = admin.firestore()
     const now = new Date()
 
-    const docPosts = await db.collection('post')
+    const docPosts = category ? 
+      await db.collection('post')
+        .where('publish', '==', true)
+        .where('release', '<', now)
+        .where('category', '==', category)
+        .get() : 
+      await db.collection('post')
         .where('publish', '==', true)
         .where('release', '<', now)
         .get()
@@ -34,7 +42,8 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             slug: post.slug,
             release: post.release.toDate(),
             markdown: post.markdown,
-            thumbnail: post.thumbnail
+            thumbnail: post.thumbnail,
+            custom: post.custom ?? {}
         }
     })
 

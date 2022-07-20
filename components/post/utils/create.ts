@@ -8,11 +8,13 @@ export const createPost = async () => {
   const newPost: Post = {
     id: getRandomStr(16),
     title: '新しい投稿',
+    category: '',
     slug: getRandomStr(),
     publish: false,
     release: Timestamp.fromDate(
       new Date(now.getFullYear(), now.getMonth(), now.getDate() + 7, 0, 0)
-    )
+    ),
+    custom: {}
   }
   const result = insert('post', newPost, newPost.id)
   return result ? newPost : null
