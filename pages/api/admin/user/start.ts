@@ -50,6 +50,7 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       if (process.env.NODE_ENV === 'development') console.log(err)
       return res.status(400).json({ result: false })
     }
+    return res.status(204).end()
   }
 
   return res.status(204).end()
