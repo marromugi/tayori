@@ -12,7 +12,6 @@ const Home: NextPage = () => {
   const { data } = useFireStore<Post>('post')
 
   if (!data) return <></>
-  if (data.length === 0) return <></>
 
   return (
     <FramerBox>

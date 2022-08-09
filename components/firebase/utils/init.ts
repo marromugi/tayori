@@ -7,7 +7,6 @@ export const initFirebase = async () => {
   try {
     // init user ( create owner user )
     const initUserRes = await fetch('/api/admin/user/start', { method: 'GET' })
-    console.log(initUserRes.status)
     if (initUserRes.status !== 204) {
       throw new Error('User initialize is failed')
     }
