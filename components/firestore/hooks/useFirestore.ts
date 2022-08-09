@@ -1,26 +1,31 @@
+import { collections } from 'firestore/types/collection'
 import { firestoreFetcher } from 'firestore/utils/fetcher'
-import useSWR from 'swr'
+import useSWR, { KeyedMutator } from 'swr'
 
 export const useFireStore = <T>(
-  collection: string,
+  collection: collections,
   uid?: string
-): T[] | null => {
-  const { data, error } = useSWR(`${collection}/${uid}`, firestoreFetcher, {
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-    dedupingInterval: 360000,
-    focusThrottleInterval: 360000,
-    errorRetryCount: 1
-  })
+): { data: T[]; mutate: KeyedMutator<T[]>; isError?: boolean } => {
+  const { data, error, mutate } = useSWR(
+    `${collection}/${uid}`,
+    firestoreFetcher,
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      dedupingInterval: 360000,
+      focusThrottleInterval: 360000,
+      errorRetryCount: 1
+    }
+  )
 
   if (error) {
-    return null
+    return { data: [], mutate, isError: true }
   }
   if (!data) {
-    return []
+    return { data: [], mutate }
   }
 
   if (process.env.NODE_ENV === 'development') console.log(data)
 
-  return Array.isArray(data) ? data : [data]
+  return { data: Array.isArray(data) ? data : [data], mutate }
 }

@@ -9,7 +9,7 @@ import { Post } from 'post/types/post'
 import { FramerBox } from 'shared/elements/box/framer'
 
 const Home: NextPage = () => {
-  const data = useFireStore<Post>('post')
+  const { data } = useFireStore<Post>('post')
 
   if (!data) return <></>
   if (data.length === 0) return <></>

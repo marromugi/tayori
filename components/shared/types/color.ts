@@ -7,4 +7,5 @@ export type Color = {
   gray04: string
   gray05: string
   gray06: string
+  active: string
 }

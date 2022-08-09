@@ -5,6 +5,7 @@ const LinkBox = styled.a<{ width?: string }>`
   display: block;
   width: ${(props) => props.width ?? 'fit-content'};
   cursor: pointer;
+  margin: 0 auto;
 `
 
 export const Link = (props: {

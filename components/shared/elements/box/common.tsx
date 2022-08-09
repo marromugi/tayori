@@ -18,6 +18,7 @@ export const Box = styled.div<{
   overflowX?: string
   overflowY?: string
   radius?: string
+  isInactive?: boolean
 }>`
   ${(props) => (props.position ? `position: ${props.position};` : '')}
   ${(props) => (props.padding ? `padding: ${props.padding};` : '')}
@@ -35,4 +36,5 @@ export const Box = styled.div<{
   ${(props) => (props.overflowX ? `overflow-x: ${props.overflowX};` : '')}
   ${(props) => (props.overflowY ? `overflow-y: ${props.overflowY};` : '')}
   ${(props) => (props.radius ? `border-radius: ${props.radius};` : '')}
+  ${(props) => (props.isInactive ? `pointer-events: none;` : '')}
 `

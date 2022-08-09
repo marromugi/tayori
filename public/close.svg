@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-close);
+      }
+
+      .cls-2 {
+        fill: #282836;
+        stroke: #282836;
+        stroke-width: 25px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+    <clipPath id="clip-close">
+      <rect width="400" height="400"/>
+    </clipPath>
+  </defs>
+  <g id="close" class="cls-1">
+    <g id="長方形_27" data-name="長方形 27" class="cls-2" transform="translate(320.888 43.757) rotate(45)">
+      <rect class="cls-3" width="50" height="391.922" rx="25"/>
+      <rect class="cls-4" x="12.5" y="12.5" width="25" height="366.922" rx="12.5"/>
+    </g>
+    <g id="長方形_28" data-name="長方形 28" class="cls-2" transform="translate(356.242 320.887) rotate(135)">
+      <rect class="cls-3" width="50" height="391.92" rx="25"/>
+      <rect class="cls-4" x="12.5" y="12.5" width="25" height="366.92" rx="12.5"/>
+    </g>
+  </g>
+</svg>

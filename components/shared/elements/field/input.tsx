@@ -21,6 +21,7 @@ type InputProps = {
     size?: string
     weight?: string
   }
+  isEllipsis?: boolean // disable時にオーバーした文字をellipsisで表示する
 }
 
 export const Input = styled.input<InputProps>`
@@ -32,6 +33,13 @@ export const Input = styled.input<InputProps>`
     ${(props) => (props.align ? `text-align: ${props.align};` : '')}
     ${(props) => (props.v_space ? `line-height: ${props.v_space};` : '')}
     ${(props) => (props.h_space ? `letter-spacing: ${props.h_space};` : '')}
+    ${(props) =>
+    props.isEllipsis
+      ? `
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+    `
+      : ''}
     ${(props) =>
     props.border
       ? props.border.width

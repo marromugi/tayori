@@ -14,9 +14,11 @@ import { Box } from 'shared/elements/box/common'
 export const PostEditor = (props: { post: Post; isPreview: boolean }) => {
   const { isPreview, uploadInfo, onInsertImgMarkdown } = usePostEditor()
   const { theme } = useTheme()
-  const areaLeavePos = useRef(0)
-  const [, setMarkdown] = useState(props.post.markdown ?? '')
+  const areaLeavePos = useRef(
+    props.post.markdown ? props.post.markdown.length : 0
+  )
   const areaRef = useRef() as MutableRefObject<HTMLTextAreaElement>
+  const [, setMarkdown] = useState(props.post.markdown ?? '')
 
   useEffect(() => {
     setMarkdown(props.post.markdown ?? '')

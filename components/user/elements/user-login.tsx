@@ -24,7 +24,7 @@ export const UserLogin = (props: {
       padding={'2em 4em'}
     >
       <FlexBox way={'column'} gap={'2em'} alignItems={'center'}>
-        <MainH>Soyo Login</MainH>
+        <MainH>Tayori Login</MainH>
         <Sentence>おかえりなさい</Sentence>
         <form
           onSubmit={(e) => {

@@ -1,3 +1,4 @@
+import { Category } from 'components/category/types/category'
 import { useFireStore } from 'firestore/hooks/useFirestore'
 import { useRouter } from 'next/router'
 import { PostEditor } from 'post/elements/post-editor'
@@ -13,9 +14,10 @@ export const Page = () => {
   const router = useRouter()
   const { id } = router.query
   const [isPreview, setPreviewMode] = useState(false)
-  const post = useFireStore<Post>('post', id as string)
+  const { data: post } = useFireStore<Post>('post', id as string)
+  const { data: categories } = useFireStore<Category>('category')
 
-  if (!post) return <></>
+  if (!post || !categories) return <></>
   if (post.length === 0) return <></>
 
   return (
@@ -34,6 +36,7 @@ export const Page = () => {
           <Box height={'100%'} padding={'1em 0'}>
             <PostEditorSidebar
               post={post[0]}
+              categories={categories}
               isPreview={isPreview}
               onSetPreviewMode={(s) => setPreviewMode(s)}
             />

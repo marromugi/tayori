@@ -12,9 +12,14 @@ import styled from 'styled-components'
 import { savePost } from 'post/utils/save'
 import { deletePost } from 'post/utils/delete'
 import { useRouter } from 'next/router'
+import { useNotification } from 'components/notification/hooks/useNotification'
+import { messageList } from 'post/utils/message'
+import { errorList } from 'post/utils/error'
+import { schedule } from 'post/utils/schedule'
 
 export const PostEditorHeader = (props: { post: Post }) => {
   const { theme } = useTheme()
+  const notifier = useNotification()
   const router = useRouter()
   return (
     <HeaderBox background={theme.color.base}>
@@ -62,11 +67,22 @@ export const PostEditorHeader = (props: { post: Post }) => {
           <Button
             onClick={async () => {
               const error = await savePost(props.post)
-              console.log(error)
+              const isSchedule =
+                props.post.publish && props.post.release.toDate() > new Date()
               if (error === null) {
-                alert(`投稿【${props.post.title}】の保存が完了しました`)
+                notifier.show(
+                  props.post.publish
+                    ? props.post.release.toDate() < new Date()
+                      ? messageList.success_save_update
+                      : messageList.success_save_reserve
+                    : messageList.success_save_draft
+                )
               } else {
-                alert(error.message)
+                notifier.show(errorList.update_failed)
+              }
+
+              if (isSchedule) {
+                schedule(props.post)
               }
             }}
           >

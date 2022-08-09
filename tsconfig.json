@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,27 +15,15 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "shared/*": [
-        "components/shared/*"
-      ],
-      "auth/*": [
-        "components/user/*"
-      ],
-      "firestore/*": [
-        "components/firestore/*"
-      ],
-      "post/*": [
-        "components/post/*"
-      ]
+      "shared/*": ["components/shared/*"],
+      "auth/*": ["components/user/*"],
+      "firestore/*": ["components/firestore/*"],
+      "post/*": ["components/post/*"],
+      "category/*": ["components/category/*"],
+      "notification/*": ["components/notification/*"]
     },
     "incremental": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

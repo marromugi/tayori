@@ -17,9 +17,12 @@ import { usePostEditor } from 'post/hooks/usePostEditor'
 import { Timestamp } from 'firebase/firestore'
 import { Upload } from 'shared/elements/field/upload'
 import { StorageObject } from 'components/storage/types/obj'
+import { Select } from 'shared/elements/field/select'
+import { Category } from 'components/category/types/category'
 
 export const PostEditorSidebar = (props: {
   post: Post
+  categories: Category[]
   isPreview: boolean
   onSetPreviewMode: (state: boolean) => void
 }) => {
@@ -190,14 +193,25 @@ export const PostEditorSidebar = (props: {
             title={'カテゴリー'}
             description={'この投稿のカテゴリーを設定します'}
           >
-            <Input
-              width={'100%'}
-              padding={'1em 0.5em'}
-              background={theme.color.gray06}
-              border={{ radius: '6px' }}
-              defaultValue={props.post.category}
-              onChange={(e) => (props.post.category = e.target.value)}
-            />
+            {props.categories.length > 0 && (
+              <Select
+                values={props.categories.map((c) => c.name)}
+                defaultValue={
+                  props.categories.filter((c) => c.id === props.post.category)
+                    .length > 0
+                    ? props.categories.filter(
+                        (c) => c.id === props.post.category
+                      )[0].name
+                    : ''
+                }
+                onChange={(s) => {
+                  const category = props.categories.filter(
+                    (c) => c.name === s
+                  )[0]
+                  props.post.category = category.id
+                }}
+              />
+            )}
           </BottomField>
           <BottomField
             title={'サムネイル'}
@@ -219,7 +233,9 @@ export const PostEditorSidebar = (props: {
               padding={'1em 0.5em'}
               background={theme.color.gray06}
               border={{ radius: '6px' }}
-              defaultValue={props.post.custom ? props.post.custom.color ?? '' : ''}
+              defaultValue={
+                props.post.custom ? props.post.custom.color ?? '' : ''
+              }
               onChange={(e) => {
                 if (!props.post.custom) props.post.custom = {}
                 props.post.custom.color = e.target.value

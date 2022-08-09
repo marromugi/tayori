@@ -4,8 +4,10 @@ import { Box } from './common'
 export const ColorBox = styled(Box)<{
   background?: string
   opacity?: number
+  transition?: number
   hover?: { background?: string; opacity?: number }
 }>`
+  ${(props) => (props.transition ? `transition: ${props.transition}s;` : '')}
   ${(props) => (props.background ? `background: ${props.background};` : '')}
   ${(props) => (props.opacity ? `opacity: ${props.opacity};` : '')}
     ${(props) =>

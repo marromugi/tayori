@@ -1,4 +1,3 @@
-
 import { gen } from 'middle'
 import { Post } from 'post/types/post'
 
@@ -12,9 +11,5 @@ export const PostMarkdown = (props: { post: Post }) => {
     pre: 'md-pre',
     code: 'tokyo-night-dark'
   })
-  console.log(props.post.markdown)
-  console.log(elements)
-  return (
-    <div dangerouslySetInnerHTML={{__html: elements}}></div>
-  )
+  return <div dangerouslySetInnerHTML={{ __html: elements }}></div>
 }
