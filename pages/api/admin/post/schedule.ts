@@ -73,7 +73,7 @@ const reqOnEndpoints = async (postId: string) => {
 
   const endpoints = scheduleEndpoints[0].endpoints
 
-  endpoints.forEach((e) => {
+  endpoints.forEach(async (e) => {
     const formatted = e
       .replace('{category}', category.name ?? '')
       .replace('{categoryId}', category.id ?? '')
@@ -81,7 +81,9 @@ const reqOnEndpoints = async (postId: string) => {
       .replace('{title}', post.title ?? '')
       .replace('{slug}', post.slug ?? '')
     if (isURL(formatted)) {
-      fetch(formatted, { method: 'GET' })
+      const res = await fetch(formatted, { method: 'GET' })
+      const resBody = await res.json()
+      console.log(resBody)
     }
   })
 
