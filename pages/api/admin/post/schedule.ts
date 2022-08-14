@@ -72,22 +72,23 @@ const reqOnEndpoints = async (postId: string) => {
   }
 
   const endpoints = scheduleEndpoints[0].endpoints
+  const fetchers = Promise.all(
+    endpoints.map(async (e) => {
+      const formatted = e
+        .replace('{category}', category.name ?? '')
+        .replace('{categoryId}', category.id ?? '')
+        .replace('{id}', post.id ?? '')
+        .replace('{title}', post.title ?? '')
+        .replace('{slug}', post.slug ?? '')
+      if (isURL(formatted)) {
+        const res = await fetch(formatted, { method: 'GET' })
+        return await res.json()
+      }
+    })
+  )
 
-  endpoints.forEach(async (e) => {
-    const formatted = e
-      .replace('{category}', category.name ?? '')
-      .replace('{categoryId}', category.id ?? '')
-      .replace('{id}', post.id ?? '')
-      .replace('{title}', post.title ?? '')
-      .replace('{slug}', post.slug ?? '')
-    if (isURL(formatted)) {
-      const res = await fetch(formatted, { method: 'GET' })
-      const resBody = await res.json()
-      console.log(resBody)
-    }
-  })
-
-  console.log('endpoint request done')
+  const results = await fetchers
+  console.log(results)
 
   return true
 }
