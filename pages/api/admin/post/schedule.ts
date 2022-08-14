@@ -215,10 +215,12 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   // set schedule data to standby-list
-  updateScheduleDoc({ postId, release }, 'standby')
+  const updateResult = await updateScheduleDoc({ postId, release }, 'standby')
+  console.log(`update-schedule-result: ${updateResult}`)
 
   // 削除や再リリースの延期など、投稿を非表示にするために、一回再生成する
-  reqOnEndpoints(postId)
+  const result = await reqOnEndpoints(postId)
+  console.log(`endpoint-result: ${result}`)
 
   const isAlreadyReleased = release <= new Date()
 
