@@ -27,6 +27,7 @@ const getDB = () => {
 
 // 各エンドポイントへGETリクエストを送る
 const reqOnEndpoints = async (postId: string) => {
+  console.log('endpoint request runnning...')
   const db = getDB()
   const settingDoc = await db.collection('settings').doc('main').get()
   const postDoc = await db.collection('post').doc(postId).get()
@@ -83,6 +84,8 @@ const reqOnEndpoints = async (postId: string) => {
       fetch(formatted, { method: 'GET' })
     }
   })
+
+  console.log('endpoint request done')
 
   return true
 }
