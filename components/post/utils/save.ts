@@ -13,7 +13,7 @@ export const savePost = async (post: Post) => {
   }
 
   // update post
-  const result = update<Post>('post', post.id, post)
+  const result = await update<Post>('post', post.id, post)
 
   return result ? null : errorList.update_failed
 }

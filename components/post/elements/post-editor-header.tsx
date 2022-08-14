@@ -75,11 +75,10 @@ export const PostEditorHeader = (props: { post: Post }) => {
                       : messageList.success_save_reserve
                     : messageList.success_save_draft
                 )
+                schedule(props.post)
               } else {
                 notifier.show(errorList.update_failed)
               }
-
-              schedule(props.post)
             }}
           >
             保存する
