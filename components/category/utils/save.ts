@@ -5,6 +5,6 @@ import { errorList } from './error'
 export const saveCategory = async (category: Category) => {
   if (process.env.NODE_ENV === 'development') console.log(category)
 
-  const result = update<Category>('category', category.id, category)
+  const result = await update<Category>('category', category.id, category)
   return result ? null : errorList.update_failed
 }
