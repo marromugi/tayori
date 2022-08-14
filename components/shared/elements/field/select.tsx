@@ -57,9 +57,9 @@ export const Select = (props: {
                 ></ColorBox>
               </BorderBox>
               <Sentence
-                size={moduler(-1)}
+                size={moduler(-2)}
                 h_space={'0.02em'}
-                weight={'500'}
+                weight={'600'}
                 color={value === v ? theme.color.main : theme.color.gray03}
               >
                 {v}

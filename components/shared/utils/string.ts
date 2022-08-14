@@ -16,3 +16,16 @@ export const getRandomStr = (length?: number) => {
     .map((n) => S[n % S.length])
     .join('')
 }
+
+export const isURL = (value: string, excepts: string[] = []) => {
+  try {
+    let v = value
+    excepts.forEach((e) => {
+      v = v.replace(e, '')
+    })
+    const url = new URL(v)
+    return url.protocol === 'http:' || url.protocol === 'https:'
+  } catch {
+    return false
+  }
+}

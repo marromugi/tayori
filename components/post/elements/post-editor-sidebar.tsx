@@ -193,6 +193,22 @@ export const PostEditorSidebar = (props: {
             title={'カテゴリー'}
             description={'この投稿のカテゴリーを設定します'}
           >
+            {props.categories.length <= 0 && (
+              <ColorBox
+                radius={'10px'}
+                padding={'1em'}
+                background={theme.color.gray06}
+              >
+                <FlexBox way={'column'}>
+                  <Sentence size={moduler(-3)} color={theme.color.gray03}>
+                    選択できるカテゴリーはありません。
+                  </Sentence>
+                  <Sentence size={moduler(-3)} color={theme.color.gray03}>
+                    設定画面にてカテゴリーを作成すると選択できるようになります。
+                  </Sentence>
+                </FlexBox>
+              </ColorBox>
+            )}
             {props.categories.length > 0 && (
               <Select
                 values={props.categories.map((c) => c.name)}

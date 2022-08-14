@@ -25,7 +25,7 @@ export const useFireStore = <T>(
     return { data: [], mutate }
   }
 
-  if (process.env.NODE_ENV === 'development') console.log(data)
+  // if (process.env.NODE_ENV === 'development') console.log(data)
 
   return { data: Array.isArray(data) ? data : [data], mutate }
 }

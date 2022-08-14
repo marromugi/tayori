@@ -67,8 +67,6 @@ export const PostEditorHeader = (props: { post: Post }) => {
           <Button
             onClick={async () => {
               const error = await savePost(props.post)
-              const isSchedule =
-                props.post.publish && props.post.release.toDate() > new Date()
               if (error === null) {
                 notifier.show(
                   props.post.publish
@@ -81,9 +79,7 @@ export const PostEditorHeader = (props: { post: Post }) => {
                 notifier.show(errorList.update_failed)
               }
 
-              if (isSchedule) {
-                schedule(props.post)
-              }
+              schedule(props.post)
             }}
           >
             保存する
