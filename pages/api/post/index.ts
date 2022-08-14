@@ -41,7 +41,7 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           .get()
 
     if (docPosts.empty) {
-      return res.status(404).json({ message: 'post not found' })
+      return res.status(200).json([])
     }
 
     const posts = docPosts.docs.map((docPost) => {

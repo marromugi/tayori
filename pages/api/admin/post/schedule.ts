@@ -220,7 +220,9 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await releasePost(title, postId, release)
   } else {
     // set cron job
+    console.log('job scheduled')
     schedule.scheduleJob(postId, release, async () => {
+      console.log('job runnning')
       await releasePost(title, postId, release)
     })
   }
