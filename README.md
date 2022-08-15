@@ -92,6 +92,7 @@ service firebase.storage {
 |FIREBASE_CLIENT_EMAIL|AdminSDK JSONファイル|client_email|
 |OWNER_EMAIL|なし|任意のメールアドレス|
 |OWNER_PWD|なし|任意のパスワード|
+|SLACK_TOKEN|Slackアプリケーションのトークン|Slackアプリケーションのトークン|
 
 `OWNER_EMAIL`と`OWNER_PWD`は、初回ログインするアカウントのメールアドレスとパスワードになります。<br>
 またデプロイ先に`Vercel`を採用する場合、`FIREBASE_PRIVATE_KEY`の入力内容が異なります。開発時は、秘密鍵を`"`で括りますが、Vercelに秘密鍵を登録する際は`"`を除いて登録してください。
