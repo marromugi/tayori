@@ -7,6 +7,7 @@ export const Image = (props: {
   fit: NonNullable<JSX.IntrinsicElements['img']['style']>['objectFit']
   radius?: string
   cursor?: string
+  onClick?: () => void
 }) => {
   return (
     <CursorBox
@@ -15,6 +16,11 @@ export const Image = (props: {
       radius={props.radius}
       overflow={'hidden'}
       cursor={props.cursor ?? ''}
+      onClick={() => {
+        if (props.onClick) {
+          props.onClick()
+        }
+      }}
     >
       <img
         style={{
