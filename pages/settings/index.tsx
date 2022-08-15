@@ -36,21 +36,23 @@ const Home: NextPage = () => {
             position={'relative'}
             overflowY={'scroll'}
           >
-            <SettingBox id={'general'} isDefault={true}>
-              <FlexBox way={'column'} gap={'3em'}>
-                <SettingFieldInput
-                  emoji={'📩'}
-                  title={'通知用メールアドレス'}
-                  description={
-                    '記事を公開・更新・削除した際に送信するメールアドレスを登録します。\nメールアドレスを登録しない場合、オーナーのメールアドレスへ公開通知をします。'
-                  }
-                  defaultValue={''}
-                  placeholder={'xxx@example.com'}
-                  onChange={(s) => console.log(s)}
-                />
-              </FlexBox>
-            </SettingBox>
-            <SettingBox id={'post'}>
+            {false && (
+              <SettingBox id={'general'} isDefault={false}>
+                <FlexBox way={'column'} gap={'3em'}>
+                  <SettingFieldInput
+                    emoji={'📩'}
+                    title={'通知用メールアドレス'}
+                    description={
+                      '記事を公開・更新・削除した際に送信するメールアドレスを登録します。\nメールアドレスを登録しない場合、オーナーのメールアドレスへ公開通知をします。'
+                    }
+                    defaultValue={''}
+                    placeholder={'xxx@example.com'}
+                    onChange={(s) => console.log(s)}
+                  />
+                </FlexBox>
+              </SettingBox>
+            )}
+            <SettingBox id={'post'} isDefault={true}>
               <FlexBox way={'column'} gap={'2em'}>
                 <SettingFieldCategory
                   emoji={'🗂'}
@@ -71,13 +73,6 @@ const Home: NextPage = () => {
                   settings={settings ? settings[0] : null}
                   mutate={settingMutate}
                 />
-              </FlexBox>
-            </SettingBox>
-            <SettingBox id={'general2'}>
-              <FlexBox way={'column'} gap={'3em'}>
-                <Box>Hello</Box>
-                <Box>Hello</Box>
-                <Box>Hello</Box>
               </FlexBox>
             </SettingBox>
           </Box>

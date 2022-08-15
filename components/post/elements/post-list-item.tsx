@@ -9,8 +9,12 @@ import { Word } from 'shared/elements/text/common'
 import { useTheme } from 'shared/hooks/useTheme'
 import { moduler } from 'shared/utils/styles'
 import { getDateText, getTimeText } from 'shared/utils/date'
+import { Category } from 'category/types/category'
 
-export const PostListItem = (props: { post: Post }) => {
+export const PostListItem = (props: {
+  post: Post
+  category: Category | null
+}) => {
   const { theme } = useTheme()
   return (
     <Link href={`/post/${props.post.id}`} width={'100%'}>
@@ -80,7 +84,9 @@ export const PostListItem = (props: { post: Post }) => {
                       weight={'bold'}
                       color={theme.color.main}
                     >
-                      ブログ
+                      {props.category !== null
+                        ? props.category.name
+                        : 'カテゴリーなし'}
                     </Word>
                   </ColorBox>
                 </BorderBox>

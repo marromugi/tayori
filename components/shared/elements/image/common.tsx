@@ -1,30 +1,29 @@
-import styled from 'styled-components'
-import { BorderProps } from 'shared/types/elements'
+import { CursorBox } from '../box/cursor'
 
-export const Image = styled.div<{
+export const Image = (props: {
   width: string
   height: string
   src: string
   fit: NonNullable<JSX.IntrinsicElements['img']['style']>['objectFit']
   radius?: string
-  border?: BorderProps
   cursor?: string
-}>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  ${(props) => (props.radius ? `border-radius: ${props.radius};` : '')}
-  ${(props) => (props.cursor ? `cursor: ${props.cursor};` : '')}
-  overflow: hidden;
-  background-image: url(${(props) => props.src});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: ${(props) => props.fit};
-  ${(props) =>
-    props.border
-      ? `
-    border-width: ${props.border.width ?? '1px'};
-    border-style: ${props.border.style ?? 'solid'};
-    border-color: ${props.border.color ?? 'gray'};
-  `
-      : ''}
-`
+}) => {
+  return (
+    <CursorBox
+      width={props.width}
+      height={props.height}
+      radius={props.radius}
+      overflow={'hidden'}
+      cursor={props.cursor ?? ''}
+    >
+      <img
+        style={{
+          width: props.width,
+          height: props.height,
+          objectFit: props.fit
+        }}
+        src={props.src}
+      />
+    </CursorBox>
+  )
+}

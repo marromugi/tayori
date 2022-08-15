@@ -6,12 +6,15 @@ import { Box } from 'shared/elements/box/common'
 import { FlexBox } from 'shared/elements/box/flex'
 import { useFireStore } from 'firestore/hooks/useFirestore'
 import { Post } from 'post/types/post'
+import { Category } from 'category/types/category'
 import { FramerBox } from 'shared/elements/box/framer'
+import { findInArray } from 'shared/utils/object'
 
 const Home: NextPage = () => {
-  const { data } = useFireStore<Post>('post')
+  const { data: posts } = useFireStore<Post>('post')
+  const { data: categories } = useFireStore<Category>('category')
 
-  if (!data) return <></>
+  if (!posts || !categories) return <></>
 
   return (
     <FramerBox>
@@ -32,8 +35,12 @@ const Home: NextPage = () => {
               wrap={'wrap'}
               padding={'2em 0'}
             >
-              {data.map((d) => (
-                <PostListItem key={d.id} post={d} />
+              {posts.map((p: Post) => (
+                <PostListItem
+                  key={p.id}
+                  post={p}
+                  category={findInArray(categories, (c) => c.id === p.category)}
+                />
               ))}
             </FlexBox>
           </Box>

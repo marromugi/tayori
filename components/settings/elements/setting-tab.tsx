@@ -15,16 +15,20 @@ export const SettingTab = () => {
     <Box width={'100%'} position={'relative'} overflowX={'scroll'} shrink={'0'}>
       <BorderBox
         borderPosition={'bottom'}
-        borderWidth={'3px'}
+        borderWidth={'2px'}
         borderColor={theme.color.gray04}
         borderStyle={'solid'}
       >
         <TransformBox transform={'translateY(3px)'}>
           <FlexBox way={'row'}>
-            <SettingTabItem id={'general'} isDefault={true}>
-              General
+            {false && (
+              <SettingTabItem id={'general'} isDefault={true}>
+                General
+              </SettingTabItem>
+            )}
+            <SettingTabItem id={'post'} isDefault={true}>
+              Post
             </SettingTabItem>
-            <SettingTabItem id={'post'}>Post</SettingTabItem>
           </FlexBox>
         </TransformBox>
       </BorderBox>
@@ -47,13 +51,13 @@ const SettingTabItem = (props: {
     <ColorBox opacity={isVisible ? 1 : 0.5} width={'10ch'}>
       <BorderBox
         borderPosition={'bottom'}
-        borderWidth={'3px'}
+        borderWidth={'4px'}
         borderColor={isVisible ? theme.color.main : 'transparent'}
         borderStyle={'solid'}
         padding={'0 0 9px 0'}
       >
         <Link href={`/settings#${props.id}`}>
-          <Word size={moduler(-1)} h_space={'0.02em'} weight={'600'}>
+          <Word size={moduler(0)} h_space={'0.02em'} weight={'400'}>
             {props.children}
           </Word>
         </Link>

@@ -39,7 +39,7 @@ export const UserProvider = (props: { children: React.ReactNode }) => {
     }
 
     // ログインしている場合は、ログイン画面を表示しない
-    if (user !== null && router.pathname === '/login') {
+    if (user !== null && ['/login', '/'].includes(router.pathname)) {
       router.replace('/post')
     }
   }, [user, isInited, router.pathname])

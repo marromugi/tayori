@@ -3,14 +3,16 @@ import { Header } from 'shared/elements/header/header'
 
 export const SettingHeader = () => {
   return (
-      <Header name={'設定'} subName={'SETTINGS'}>
+    <Header name={'設定'} subName={'SETTINGS'}>
+      {false && (
         <Button
           onClick={() => {
             console.log('save settings')
           }}
         >
-            保存する
+          保存する
         </Button>
-      </Header>
+      )}
+    </Header>
   )
 }
