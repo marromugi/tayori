@@ -29,3 +29,8 @@ export const isURL = (value: string, excepts: string[] = []) => {
     return false
   }
 }
+
+export const isEmail = (value: string) => {
+  const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+  return !regEmail.test(value)
+}

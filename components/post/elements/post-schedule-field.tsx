@@ -9,8 +9,9 @@ import { PostScheduleEndpoint } from 'components/settings/types/settings'
 export const PostScheduleEndpointField = (props: {
   schedule: PostScheduleEndpoint
   endpoint: string
+  index: number
   onSave: (endpoint: string, isNew: boolean) => Promise<void>
-  onDelete: (endpoint: string) => void
+  onDelete: (index: number) => void
   isNew: boolean
 }) => {
   const ref = useRef() as React.MutableRefObject<HTMLInputElement>
@@ -49,14 +50,8 @@ export const PostScheduleEndpointField = (props: {
         isEllipsis={!isEdit}
         onChange={(e) => {
           // update endpoint list
-          props.schedule.endpoints.some((endpoint, i) => {
-            if (endpoint === editRef.current) {
-              props.schedule.endpoints.splice(i, 1, e.currentTarget.value)
-              return true
-            } else {
-              return false
-            }
-          })
+          props.schedule.endpoints.splice(props.index, 1, e.currentTarget.value)
+          console.log(props.schedule.endpoints)
 
           // update recent value
           editRef.current = e.currentTarget.value
@@ -93,7 +88,7 @@ export const PostScheduleEndpointField = (props: {
           <ColorBox
             opacity={0.2}
             hover={{ opacity: 1 }}
-            onClick={() => props.onDelete(editRef.current)}
+            onClick={() => props.onDelete(props.index)}
           >
             <Image
               width={'30px'}

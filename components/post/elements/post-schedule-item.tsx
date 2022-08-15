@@ -41,17 +41,6 @@ export const PostScheduleItem = (props: {
   const onSave = async (endpoint: string, isNew: boolean) => {
     const copy = copyObj(props.settings)
 
-    // 新規追加時のみ、配列に新たに組み込む
-    if (isNew) {
-      copy.schedules.some((schedule) => {
-        if (schedule.categoryId === props.category.id) {
-          schedule.endpoints.push(endpoint)
-        }
-
-        return schedule.categoryId === props.category.id
-      })
-    }
-
     // show notification
     notifier.loading()
 
@@ -62,15 +51,14 @@ export const PostScheduleItem = (props: {
     })
   }
 
-  const onDelete = (endpoint: string) => {
+  const onDelete = (index: number) => {
     const copy = copyObj(props.settings)
 
     // 削除するエンドポイントを配列から除外
     copy.schedules.some((schedule) => {
       if (schedule.categoryId === props.category.id) {
-        schedule.endpoints = schedule.endpoints.filter((e) => e !== endpoint)
+        schedule.endpoints.splice(index, 1)
       }
-
       return schedule.categoryId === props.category.id
     })
 
@@ -101,6 +89,7 @@ export const PostScheduleItem = (props: {
             {schedule.endpoints.map((endpoint, i) => (
               <PostScheduleEndpointField
                 key={i}
+                index={i}
                 schedule={schedule}
                 endpoint={endpoint}
                 onSave={onSave}
@@ -114,6 +103,7 @@ export const PostScheduleItem = (props: {
               endpoint={''}
               onSave={onSave}
               onDelete={onDelete}
+              index={schedule.endpoints.length}
               isNew={true}
             />
           </FlexBox>
