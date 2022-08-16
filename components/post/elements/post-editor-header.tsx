@@ -54,6 +54,7 @@ export const PostEditorHeader = (props: { post: Post }) => {
           <HeaderButtonBox
             onClick={async () => {
               const result = await deletePost(props.post)
+              await schedule(props.post)
               if (result) router.push('/post')
             }}
           >
@@ -75,7 +76,7 @@ export const PostEditorHeader = (props: { post: Post }) => {
                       : messageList.success_save_reserve
                     : messageList.success_save_draft
                 )
-                schedule(props.post)
+                await schedule(props.post)
               } else {
                 notifier.show(errorList.update_failed)
               }

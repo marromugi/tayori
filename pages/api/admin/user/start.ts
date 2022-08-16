@@ -48,7 +48,7 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     // すでに作成されている場合を除き 400
     if (err.code !== 'auth/email-already-exists') {
       if (process.env.NODE_ENV === 'development') console.log(err)
-      return res.status(400).json({ result: false })
+      return res.status(200).json({ result: true })
     }
     return res.status(204).end()
   }

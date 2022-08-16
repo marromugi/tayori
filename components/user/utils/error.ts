@@ -36,5 +36,13 @@ export const errorList = {
     message: 'メールアドレスが不正な文字です。',
     detail: 'メールアドレス入力欄には、アドレスの末尾まで入力してください。',
     type: 'failed'
+  },
+  too_many_request: <Notification>{
+    emoji: '😲',
+    code: 'user_too_many_request',
+    message: 'リトライ回数の上限に達しているため、ログインができません。',
+    detail:
+      '時間を置いて再度お試しいただくか、管理者に制限を解除してもらうことで再度ログイン検証が可能です。',
+    type: 'failed'
   }
 }

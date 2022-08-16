@@ -36,6 +36,15 @@ export const page = () => {
               case 'auth/invalid-email':
                 notifier.show(errorList.invalid_email_or_password)
                 break
+              case 'auth/wrong-password':
+                notifier.show(errorList.invalid_email_or_password)
+                break
+              case 'auth/user-not-found':
+                notifier.show(errorList.invalid_email_or_password)
+                break
+              case 'auth/too-many-requests':
+                notifier.show(errorList.too_many_request)
+                break
               default:
             }
           }}

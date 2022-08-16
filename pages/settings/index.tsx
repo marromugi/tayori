@@ -47,7 +47,7 @@ const Home: NextPage = () => {
                     }
                     defaultValue={''}
                     placeholder={'xxx@example.com'}
-                    onChange={(s) => console.log(s)}
+                    onChange={(s) => {}}
                   />
                 </FlexBox>
               </SettingBox>

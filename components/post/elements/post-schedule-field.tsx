@@ -51,7 +51,8 @@ export const PostScheduleEndpointField = (props: {
         onChange={(e) => {
           // update endpoint list
           props.schedule.endpoints.splice(props.index, 1, e.currentTarget.value)
-          console.log(props.schedule.endpoints)
+          if (process.env.NODE_ENV === 'development')
+            console.log(props.schedule.endpoints)
 
           // update recent value
           editRef.current = e.currentTarget.value
