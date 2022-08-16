@@ -104,6 +104,10 @@ const CategoryItem = (props: {
     if (isEdit) ref.current.focus()
   }, [isEdit])
 
+  useEffect(() => {
+    ref.current.value = props.category.name
+  }, [props.category])
+
   return (
     <BorderBox
       borderColor={theme.color.gray04}
