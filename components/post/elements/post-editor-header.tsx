@@ -15,7 +15,7 @@ import { useRouter } from 'next/router'
 import { useNotification } from 'components/notification/hooks/useNotification'
 import { messageList } from 'post/utils/message'
 import { errorList } from 'post/utils/error'
-import { schedule } from 'post/utils/schedule'
+import { refresh, schedule } from 'post/utils/schedule'
 
 export const PostEditorHeader = (props: { post: Post }) => {
   const { theme } = useTheme()
@@ -54,8 +54,10 @@ export const PostEditorHeader = (props: { post: Post }) => {
           <HeaderButtonBox
             onClick={async () => {
               const result = await deletePost(props.post)
-              await schedule(props.post)
-              if (result) router.push('/post')
+              if (result) {
+                await refresh(props.post)
+                router.push('/post')
+              }
             }}
           >
             <Image
